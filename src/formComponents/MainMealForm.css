@@ -1,0 +1,67 @@
+.MealForm {
+  max-width: 800px;
+  margin: 30px auto;
+  background: #343a40;
+  opacity: 75%;
+  padding: 40px;
+  border-radius: 10px;
+}
+.MealFormInput,
+.MealFormSubmit {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  min-width: 200px;
+}
+.MealFormInput div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+/*///////////////Images on form*/
+.MainFormImages {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.MainFormImages > div {
+  max-width: 200px;
+  padding: 10px;
+}
+/*////////////////Input on form*/
+.MealFormInput .FormInputRight {
+  width: 250px;
+  margin-right: 20px;
+}
+.MealForm input[type="number"] {
+  text-align: left;
+  height: 45px;
+  font-size: 20px;
+}
+.MealForm .MealFormInput .FormInputRight .longAppend {
+  width: 130px;
+}
+/*////////////////Labels on Form*/
+.MealForm .MealFormInput .FormInputRight .calcBtn {
+  /*Make calc button not show outline when clicked*/
+  outline: 0;
+}
+label {
+  color: rgb(255, 255, 255);
+  margin: 13px 0 0px;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+.MealFormInput .FormLabelLeft label {
+  position: relative;
+  text-align: right;
+  padding-right: 15px;
+  width: 150px;
+}
+.MainFormImages .dietType label {
+  font-size: 0.7em;
+  display: flex;
+  justify-content: center;
+}
