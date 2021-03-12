@@ -4,12 +4,13 @@ import { NavigationBar } from './navComponent/NavigationBar';
 import { JumboTextDisplay } from './jumboComponent/JumboTextDisplay';
 import MainMealForm from './formComponents/MainMealForm';
 
-const App: React.FC = () => {
+export default function App() {
   return (
     <>
-      <NavigationBar navBarItems={{ logoImage: "/images/fitbuddy.jpg", text: ["Products", "Personal"] }}
-        styles={{ mainComponent: "NavBar", componentItem: "NavBarItems", links: "NavL", image: "NavImg", button: "NavBtn", btnVariant: "outline-primary" }} />
-
+      <NavigationBar navProps={{
+        navBarItems: { logoImage: "/images/fitbuddy.jpg", text: ["Products", "Personal"] },
+        styles: { mainComponent: "NavBar", componentItem: "NavBarItems", links: "NavL", image: "NavImg", button: "NavBtn", btnVariant: "outline-primary" }
+      }} />
       <JumboTextDisplay style={{ class: "h1Jumbo" }}
         textToDisplay={{
           weight: ["3", "3", "3", "4", "2", "1"],
@@ -20,25 +21,30 @@ const App: React.FC = () => {
             "Let me do the thinking",
             "You do the eating"],
         }} />
-      <MainMealForm btnProperties={{
-        imageClass: "dietType",
-        image: ["/images/dietEverything.png",
-          "/images/dietPaleo.png",
-          "/images/dietVegetarian.png",
-          "/images/dietKeto.png"],
-        imgWidth: "50px",
-        imgHeight: "50px",
-        dietLabel: ["Anything",
-          "Paleo",
-          "Vegetarian",
-          "Keto"],
-        btnClass: "imrBtn",
-        btnVariant: ["outline-success",
-          "outline-info",
-          "outline-danger",
-          "outline-warning"]
-      }}
-        inputProperties={{
+      <MainMealForm mealFormProps={{
+        mainProperties: {
+          mainClass: "MealForm",
+          imagesClass: "MainFormImages",
+          inputClass: "MealFormInput"
+        },
+        btnProperties: {
+          imageClass: "dietType",
+          image: ["/images/dietEverything.png",
+            "/images/dietPaleo.png",
+            "/images/dietVegetarian.png",
+            "/images/dietKeto.png"],
+          imgWidth: "50px",
+          imgHeight: "50px",
+          dietLabel: ["Anything",
+            "Paleo",
+            "Vegetarian",
+            "Keto"],
+          btnClass: "imrBtn",
+          btnVariant: ["outline-success",
+            "outline-info",
+            "outline-danger",
+            "outline-warning"]
+        }, inputProperties: {
           labelClass: "FormLabelLeft",
           labelText: ["I Want To Eat", "In"],
           inputClass: "FormInputRight",
@@ -53,14 +59,8 @@ const App: React.FC = () => {
           btnImageCalculator: "/images/logo.svg", //Fix this so its recognized 
           btnVariant: "outline-light",
           inputName: ["calories", "meals"]
-        }}
-        mainProperties={{
-          mainClass: "MealForm",
-          imagesClass: "MainFormImages",
-          inputClass: "MealFormInput"
-        }} />
+        }
+      }} />
     </>
   );
 };
-export default App;
-

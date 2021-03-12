@@ -16,7 +16,7 @@ function JumboInput(text: string[], weight: string[] ) {
     for(let i=0; i< text.length; i++) {
         let MyTag = `h${weight[i]}` as keyof JSX.IntrinsicElements;
         inputArray.push(
-                <MyTag> {text[i]} </MyTag>
+                <MyTag key={i}> {text[i]} </MyTag>
         )
     }
     return inputArray;

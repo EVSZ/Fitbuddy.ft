@@ -22,7 +22,7 @@ function DisplayNavLinks(inputArray: string[], linkStyling: string) {
     let navArray = [];
     for (let i = 0; i < inputArray.length; i++) {
         navArray.push(
-            <Nav.Link className={linkStyling} href={inputArray[i]}>
+            <Nav.Link key={i} className={linkStyling} href={inputArray[i]}>
                 <p>
                     {inputArray[i]}
                 </p>
@@ -31,18 +31,18 @@ function DisplayNavLinks(inputArray: string[], linkStyling: string) {
     };
     return navArray;
 };
-export const NavigationBar: React.FC<NavigationProps> = ({ navBarItems, styles }) => {
+export function NavigationBar({navProps}: {navProps: NavigationProps}) {
     return (
-        <Navbar className={styles.mainComponent}>
-            <div className={styles.componentItem}>
-                <img className={styles.image} src={navBarItems.logoImage} alt="" />
+        <Navbar className={navProps.styles.mainComponent}>
+            <div className={navProps.styles.componentItem}>
+                <img className={navProps.styles.image} src={navProps.navBarItems.logoImage} alt="" />
             </div>
-            <Nav className={styles.componentItem}>
-                {DisplayNavLinks(navBarItems.text, styles.links)}
+            <Nav className={navProps.styles.componentItem}>
+                {DisplayNavLinks(navProps.navBarItems.text, navProps.styles.links)}
             </Nav>
-            <div className={styles.componentItem}>
+            <div className={navProps.styles.componentItem}>
                 <Form inline>
-                    <Button className={styles.button} variant={styles.btnVariant}>
+                    <Button className={navProps.styles.button} variant={navProps.styles.btnVariant}>
                         Log-In
                     </Button>
                 </Form>
