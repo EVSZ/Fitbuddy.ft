@@ -35,6 +35,8 @@
 }
 .MealForm input[type="number"] {
   text-align: left;
+  border-top-left-radius: 5px;
+  width:115px;
   height: 45px;
   font-size: 20px;
 }
@@ -63,5 +65,12 @@ label {
 .MainFormImages .dietType label {
   font-size: 0.7em;
   display: flex;
+  justify-content: center;
+}
+/*//////////////// Confirm Button*/
+.ConfirmButton {
+  margin-left:-25px;
+  position:relative;
+  display:flex;
   justify-content: center;
 }

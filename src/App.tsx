@@ -9,7 +9,7 @@ export default function App() {
     <>
       <NavigationBar navProps={{
         navBarItems: { logoImage: "/images/fitbuddy.jpg", text: ["Products", "Personal"] },
-        styles: { mainComponent: "NavBar", componentItem: "NavBarItems", links: "NavL", image: "NavImg", button: "NavBtn", btnVariant: "outline-primary" }
+        styles: { mainComponent: "NavBar", componentItem: "NavBarItems", links: "NavL", image: "NavImg", button: "NavBtn", btnVariant: "outline-info" }
       }} />
       <JumboTextDisplay style={{ class: "h1Jumbo" }}
         textToDisplay={{
@@ -26,40 +26,13 @@ export default function App() {
           mainClass: "MealForm",
           imagesClass: "MainFormImages",
           inputClass: "MealFormInput"
+        }, 
+        confirmProperties: {
+          mainClass:"ConfirmButton",
+          variant: "primary"
         },
-        btnProperties: {
-          imageClass: "dietType",
-          image: ["/images/dietEverything.png",
-            "/images/dietPaleo.png",
-            "/images/dietVegetarian.png",
-            "/images/dietKeto.png"],
-          imgWidth: "50px",
-          imgHeight: "50px",
-          dietLabel: ["Anything",
-            "Paleo",
-            "Vegetarian",
-            "Keto"],
-          btnClass: "imrBtn",
-          btnVariant: ["outline-success",
-            "outline-info",
-            "outline-danger",
-            "outline-warning"]
-        }, inputProperties: {
-          labelClass: "FormLabelLeft",
-          labelText: ["I Want To Eat", "In"],
-          inputClass: "FormInputRight",
-          inputType: "number",
-          inputValue: [2500, 4],
-          inputStep: [25, 1],
-          inputMin: [100, 1],
-          inputMax: [10000, 9],
-          inputGroupTextClass: ["", "longAppend"],
-          inputGroupText: ["Calories", "Meals"],
-          btnClass: ["calcBtn", ""],
-          btnImageCalculator: "/images/logo.svg", //Fix this so its recognized 
-          btnVariant: "outline-light",
-          inputName: ["calories", "meals"]
-        }
+        calories: 2500,
+        meals: 4
       }} />
     </>
   );
