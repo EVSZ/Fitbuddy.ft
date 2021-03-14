@@ -1,30 +1,38 @@
 import * as React from 'react';
 import './JumboTextDisplay.css';
-
-import { Jumbotron } from 'react-bootstrap';
+import { Jumbotron, Button } from 'react-bootstrap';
+import { useState, useEffect } from 'react';
 interface JumboTextDisplayProps {
     textToDisplay: {
         input: string[];
         weight: string[];
-    };    
-    style:{
+    };
+    style: {
         class: string;
     }
 };
-function JumboInput(text: string[], weight: string[] ) {
+function JumboInput(text: string[], weight: string[]) {
     let inputArray = []
-    for(let i=0; i< text.length; i++) {
+    for (let i = 0; i < text.length; i++) {
         let MyTag = `h${weight[i]}` as keyof JSX.IntrinsicElements;
         inputArray.push(
-                <MyTag key={i}> {text[i]} </MyTag>
+            <MyTag key={i}> {text[i]} </MyTag>
         )
     }
     return inputArray;
 }
-export const JumboTextDisplay: React.FC<JumboTextDisplayProps> = ({textToDisplay, style}) => {
-        return (
+export const JumboTextDisplay: React.FC<JumboTextDisplayProps> = ({ textToDisplay, style }) => {
+    const [visible, setVisible] = useState<boolean>(true);
+    return visible ?(
+        <div>
             <Jumbotron className={style.class}>
                 {JumboInput(textToDisplay.input, textToDisplay.weight)}
+            <Button onClick={() => {
+                setVisible(false)
+            }}>
+                Yeet
+            </Button>
             </Jumbotron>
-        );
+        </div>
+    ) : <div/>
 }

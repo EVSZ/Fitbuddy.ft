@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Form, InputGroup, FormControl } from 'react-bootstrap';
+import { Form, InputGroup, FormControl, Button} from 'react-bootstrap';
 
 interface InputGroupProperties {
     mainClass: string;
@@ -16,7 +16,7 @@ interface InputGroupProperties {
     labelText: string;
     event?: any;
     onChange: React.ChangeEventHandler<HTMLInputElement> | undefined;
-    displayExtraButton?: string | JSX.Element;
+    displayExtraButton?: JSX.Element;
 }
 
 export default function DisplayInputGroup({ properties }: { properties: InputGroupProperties }) {

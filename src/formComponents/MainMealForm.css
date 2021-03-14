@@ -62,7 +62,7 @@ label {
   padding-right: 15px;
   width: 150px;
 }
-.MainFormImages .dietType label {
+.MainFormImages .DietType label {
   font-size: 0.7em;
   display: flex;
   justify-content: center;
@@ -73,4 +73,7 @@ label {
   position:relative;
   display:flex;
   justify-content: center;
+}
+.calcBtn {
+visibility:hidden;
 }

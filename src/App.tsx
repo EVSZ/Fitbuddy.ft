@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavigationBar } from './navComponent/NavigationBar';
 import { JumboTextDisplay } from './jumboComponent/JumboTextDisplay';
@@ -6,7 +7,7 @@ import MainMealForm from './formComponents/MainMealForm';
 
 export default function App() {
   return (
-    <>
+    <div className="App">
       <NavigationBar navProps={{
         navBarItems: { logoImage: "/images/fitbuddy.jpg", text: ["Products", "Personal"] },
         styles: { mainComponent: "NavBar", componentItem: "NavBarItems", links: "NavL", image: "NavImg", button: "NavBtn", btnVariant: "outline-info" }
@@ -32,6 +33,6 @@ export default function App() {
           variant: "primary"
         }
       }} />
-    </>
+    </div>
   );
 };

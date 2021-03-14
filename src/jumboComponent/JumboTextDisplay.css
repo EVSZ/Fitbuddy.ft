@@ -18,3 +18,32 @@
   color: #ffffff;
   font-weight: lighter;
 }
+
+.secondJumbo {
+  animation: moveJumbo 1s;
+  height:0px;
+}
+
+.h1JumboGone {
+  max-width: 1200px;
+  margin: 30px auto;
+  background: #343a40;
+  opacity: 90%;
+  text-align: left;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  animation-name: cssAnimation;
+  animation-duration:1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+@keyframes cssAnimation {
+  from {
+    transform: scale(1)translate(0px);
+  }
+  to {
+    transform: scale(0) translate(0px);
+  }
+}
