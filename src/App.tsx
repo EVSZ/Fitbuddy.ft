@@ -30,9 +30,7 @@ export default function App() {
         confirmProperties: {
           mainClass:"ConfirmButton",
           variant: "primary"
-        },
-        calories: 2500,
-        meals: 4
+        }
       }} />
     </>
   );

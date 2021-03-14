@@ -1,15 +1,13 @@
 import * as React from 'react';
 import './MainMealForm.css';
 import { useState } from 'react';
-import { Form, Button, InputGroup, FormControl} from 'react-bootstrap';
+import { Form, Button, InputGroup, FormControl } from 'react-bootstrap';
 import buttonData from './ImageButtonData';
-import TextInput from './TextInput';
+import DisplayInputGroups from './DisplayInputGroup';
 
 interface MainMealFormProps {
     mainProperties: GeneralFormProperties;
     confirmProperties: ConfirmButton;
-    calories: number;
-    meals: number;
 }
 interface GeneralFormProperties {
     mainClass: string;
@@ -35,19 +33,8 @@ function DisplayExtraButton(buttonToDisplay: string, btnVariant: string) {
     return button;
 };
 export default function MainMealForm({ mealFormProps }: { mealFormProps: MainMealFormProps }) {
-    const [calories, setCalories] = useState<number>(mealFormProps.calories);
-    const [meals, setMeals] = useState<number>(mealFormProps.meals);
-    function processInput(index: number) {
-        switch(index) {
-            case 0:
-                return calories;
-            case 1:
-                return meals;
-        }
-    };
-    function onConfirm() {
-        return console.log("Calories: "+  calories +   " Meals: " + meals );
-    };
+    const [calories, setCalories] = useState<number>(2500);
+    const [meals, setMeals] = useState<number>(4);
     return (
         <>
             <Form className={mealFormProps.mainProperties.mainClass}>
@@ -68,36 +55,46 @@ export default function MainMealForm({ mealFormProps }: { mealFormProps: MainMea
                         </Form.Group>
                     ))}
                 </div>
-                {TextInput.map((input, index) => (
-                    <div key={index} className={mealFormProps.mainProperties.inputClass}>
-                        <Form.Group>
-                            <div className={input.labelClass}>
-                                <Form.Label>
-                                    {input.labelText}
-                                </Form.Label>
-                            </div>
-                            <div className={input.inputClass}>
-                                <InputGroup>
-                                    <FormControl
-                                        type={input.inputType}
-                                        defaultValue={processInput(index)}
-                                        min={input.inputMin}
-                                        max={input.inputMax}
-                                        step={input.inputStep}
-                                    />
-                                    <InputGroup.Append>
-                                        <InputGroup.Text className={input.inputGroupTextClass}>
-                                            {input.inputGroupText}
-                                        </InputGroup.Text>
-                                        {DisplayExtraButton(input.btnClass, input.btnVariant)}
-                                    </InputGroup.Append>
-                                </InputGroup>
-                            </div>
-                        </Form.Group>
-                    </div>
-                ))}
+                <DisplayInputGroups properties={{
+                    mainClass: mealFormProps.mainProperties.inputClass,
+                    labelClass: "FormLabelLeft",
+                    labelText: "I Want To Eat",
+                    inputClass: "FormInputRight",
+                    type: "number",
+                    value: calories,
+                    min: 100,
+                    max: 10000,
+                    step: 25,
+                    onChange: (e) => {
+                        setCalories(parseInt(e.target.value))
+                    },
+                    inputGroupTextClass: "",
+                    inputGroupText: "Calories",
+                    name: "calories",
+                    displayExtraButton: DisplayExtraButton("calcBtn", "outline-light"),
+                }} />
+                <DisplayInputGroups properties={{
+                    mainClass: mealFormProps.mainProperties.inputClass,
+                    labelClass: "FormLabelLeft",
+                    labelText: "In",
+                    inputClass: "FormInputRight",
+                    type: "number",
+                    value: meals,
+                    min: 1,
+                    max: 9,
+                    step: 1,
+                    onChange: (e) => {
+                        setMeals(parseInt(e.target.value))
+                    },
+                    inputGroupTextClass: "longAppend",
+                    inputGroupText: "Meals",
+                    name: "meals",
+                }} />
                 <div className={mealFormProps.confirmProperties.mainClass}>
-                    <Button onClick={onConfirm} variant={mealFormProps.confirmProperties.variant}>
+                    <Button onClick={() => {
+                        alert("Calories " + calories + " Meals " + meals);
+                    }}
+                        variant={mealFormProps.confirmProperties.variant}>
                         Generate!
                     </Button>
                 </div>
@@ -105,33 +102,3 @@ export default function MainMealForm({ mealFormProps }: { mealFormProps: MainMea
         </>
     );
 };
-
-// {TextInput.map((input, index) => (
-//     <div key={index} className={mealFormProps.mainProperties.inputClass}>
-//         <Form.Group>
-//             <div className={input.labelClass}>
-//                 <Form.Label>
-//                     {input.labelText}
-//                 </Form.Label>
-//             </div>
-//             <div className={input.inputClass}>
-//                 <InputGroup>
-//                     <FormControl
-//                         type={input.inputType}
-//                         defaultValue={processInput(index)}
-//                         min={input.inputMin}
-//                         max={input.inputMax}
-//                         step={input.inputStep}
-//                         onChange={}
-//                     />
-//                     <InputGroup.Append>
-//                         <InputGroup.Text className={input.inputGroupTextClass}>
-//                             {input.inputGroupText}
-//                         </InputGroup.Text>
-//                         {DisplayExtraButton(input.btnClass, input.btnVariant)}
-//                     </InputGroup.Append>
-//                 </InputGroup>
-//             </div>
-//         </Form.Group>
-//     </div>
-// ))}
