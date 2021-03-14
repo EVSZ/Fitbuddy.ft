@@ -37,7 +37,10 @@ export default function MainMealForm({ mealFormProps }: { mealFormProps: MainMea
     const [meals, setMeals] = useState<number>(4);
     return (
         <>
-            <Form className={mealFormProps.mainProperties.mainClass}>
+            <Form onSubmit={(e) => {
+                e.preventDefault();
+                console.log("Calories " + calories + " Meals " + meals);
+            }} className={mealFormProps.mainProperties.mainClass}>
                 <div className={mealFormProps.mainProperties.imagesClass}>
                     {buttonData.map((button, index) => (
                         <Form.Group key={index} className={button.display.mainClass}>
@@ -91,9 +94,7 @@ export default function MainMealForm({ mealFormProps }: { mealFormProps: MainMea
                     name: "meals",
                 }} />
                 <div className={mealFormProps.confirmProperties.mainClass}>
-                    <Button onClick={() => {
-                        alert("Calories " + calories + " Meals " + meals);
-                    }}
+                    <Button type="submit"
                         variant={mealFormProps.confirmProperties.variant}>
                         Generate!
                     </Button>
