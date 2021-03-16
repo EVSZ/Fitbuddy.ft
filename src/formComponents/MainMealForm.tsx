@@ -20,7 +20,6 @@ interface ConfirmButton {
     variant: string;
 }
 export default function MainMealForm({ mealFormProps }: { mealFormProps: MainMealFormProps }) {
-
     const [calories, setCalories] = useState<number>(2500);
     const [meals, setMeals] = useState<number>(4);
     const [dietType, setDietType] = useState<string>("Everything");
@@ -48,7 +47,7 @@ export default function MainMealForm({ mealFormProps }: { mealFormProps: MainMea
                 </div>
             </div>
         );
-    }
+    };
     return (
         <>
             <Form onSubmit={(e) => {
@@ -158,8 +157,6 @@ export default function MainMealForm({ mealFormProps }: { mealFormProps: MainMea
                     <DisplayExtendedMealForm />  
                 */}
             </Form>
-
-
         </>
     );
 };
