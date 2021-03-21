@@ -1,0 +1,25 @@
+.DisplayContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px 0 20px 0;
+    width: 750px;
+    height:600px;
+    max-height: 800px;
+    background:#343a40ce;
+
+}
+
+.Container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item {
+    position: relative;
+    margin: 10px;
+}

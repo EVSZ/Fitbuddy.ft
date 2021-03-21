@@ -1,7 +1,7 @@
-import * as React from 'react';
 import './MainMealForm.css';
 import './ExtendedMealForm.css';
 import { useState } from 'react';
+import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
 import DisplayInputGroups from './DisplayInputGroup';
 import DisplayButtonWithImage from './DisplayButtonWithImage';
@@ -24,7 +24,8 @@ export default function MainMealForm({ mealFormProps }: { mealFormProps: MainMea
     const [meals, setMeals] = useState<number>(4);
     const [dietType, setDietType] = useState<string>("Everything");
     const [calcBtnClass, setCalcBtnClass] = useState<string>("");
-    const [extendedFormClass, setExtendedFormClass] = useState<string>("FormHide");    
+    const [extendedFormClass, setExtendedFormClass] = useState<string>("FormHide");
+    
     const button = (<Button onClick={() => {
         setCalcBtnClass("calcBtn");
         setExtendedFormClass("FormShow");
@@ -34,6 +35,7 @@ export default function MainMealForm({ mealFormProps }: { mealFormProps: MainMea
             <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-2zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-4z" />
         </svg>
     </Button>);
+
     function DisplayExtendedMealForm() {
         return (
             <div className="MainClass">
@@ -52,7 +54,11 @@ export default function MainMealForm({ mealFormProps }: { mealFormProps: MainMea
         <>
             <Form onSubmit={(e) => {
                 e.preventDefault();
-                alert("Calories " + calories + " Meals " + meals + " DietType: " + dietType);
+                axios.post(`http://localhost:8080/generator/input`, {calories, meals, dietType})
+                    .then(res => {
+                        console.log(res.data);
+                    })
+                /*alert("Calories " + calories + " Meals " + meals + " DietType: " + dietType);*/
             }} className={mealFormProps.mainProperties.mainClass}>
                 <div className={mealFormProps.mainProperties.imagesClass}>
                     <DisplayButtonWithImage properties={{

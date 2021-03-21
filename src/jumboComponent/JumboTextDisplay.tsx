@@ -27,11 +27,6 @@ export const JumboTextDisplay: React.FC<JumboTextDisplayProps> = ({ textToDispla
         <div>
             <Jumbotron className={style.class}>
                 {JumboInput(textToDisplay.input, textToDisplay.weight)}
-            <Button onClick={() => {
-                setVisible(false)
-            }}>
-                Yeet
-            </Button>
             </Jumbotron>
         </div>
     ) : <div/>

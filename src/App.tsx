@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavigationBar } from './navComponent/NavigationBar';
 import { JumboTextDisplay } from './jumboComponent/JumboTextDisplay';
 import MainMealForm from './formComponents/MainMealForm';
+import DisplaySingleProduct from './productComponents/SingleProductDisplay';
 
 export default function App() {
   return (
@@ -33,6 +34,7 @@ export default function App() {
           variant: "primary"
         }
       }} />
+      <DisplaySingleProduct displayProperties={{mainClass: "DisplayContainer"}}/>
     </div>
   );
 };
