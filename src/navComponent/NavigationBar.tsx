@@ -2,6 +2,7 @@ import * as React from 'react';
 import './NavigationBar.css'
 
 import { Navbar, Nav, Form, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 interface NavigationProps {
     navBarItems: {
@@ -21,30 +22,34 @@ interface Styling {
 function DisplayNavLinks(inputArray: string[], linkStyling: string) {
     let navArray = [];
     for (let i = 0; i < inputArray.length; i++) {
+        let link = "/" + inputArray[i];
         navArray.push(
-            <Nav.Link key={i} className={linkStyling} href={inputArray[i]}>
-                <p>
+            <Link to={link} key={i} className={linkStyling} href={inputArray[i]}>
                     {inputArray[i]}
-                </p>
-            </Nav.Link>
+            </Link>
         )
+        console.log(link);
     };
     return navArray;
 };
-export function NavigationBar({navProps}: {navProps: NavigationProps}) {
+export function NavigationBar({ navProps }: { navProps: NavigationProps }) {
     return (
         <Navbar className={navProps.styles.mainComponent}>
             <div className={navProps.styles.componentItem}>
-                <img className={navProps.styles.image} src={navProps.navBarItems.logoImage} alt="" />
+                <Link to="/">
+                    <img className={navProps.styles.image} src={navProps.navBarItems.logoImage} alt="" />
+                </Link>
             </div>
             <Nav className={navProps.styles.componentItem}>
                 {DisplayNavLinks(navProps.navBarItems.text, navProps.styles.links)}
             </Nav>
             <div className={navProps.styles.componentItem}>
-                <Form inline>
+                <Form inline>                            
+                <Link to="/Login">
                     <Button className={navProps.styles.button} variant={navProps.styles.btnVariant}>
-                        Log-In
-                    </Button>
+                    Log-In
+                </Button>
+                </Link>
                 </Form>
             </div>
         </ Navbar>

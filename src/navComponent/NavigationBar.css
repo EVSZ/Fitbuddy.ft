@@ -5,11 +5,11 @@
   position: relative;
   display: flex;
   flex-direction: row;
+  padding-top:-5px;
   align-items: center;
-  height: 100px;
+  height: 80px;
 }
-.NavBarItems,
-p {
+.NavBarItems {
   position: relative;
   width: max-content;
   display: flex;
@@ -17,15 +17,16 @@ p {
   justify-content: center;
   width: 100%;
 }
-.NavL p {
+.NavL {
   position: relative;
   justify-content: center;
   font-size: 35px;
-  margin-top: 13px;
+  padding: 15px;
   color: rgb(151, 151, 151);
 }
-.NavL p:hover {
+.NavL:hover {
   color: rgb(223, 223, 223);
+  text-decoration: none;
 }
 .NavBtn {
   width: 150px;
@@ -33,5 +34,5 @@ p {
 }
 .NavImg {
   width: 300px;
-  margin-top: -20px;
+  margin-top: -10px;
 }

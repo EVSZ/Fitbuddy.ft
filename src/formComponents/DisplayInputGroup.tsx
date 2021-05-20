@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Form, InputGroup, FormControl, Button} from 'react-bootstrap';
+import { Form, InputGroup, FormControl } from 'react-bootstrap';
 
 interface InputGroupProperties {
     mainClass: string;

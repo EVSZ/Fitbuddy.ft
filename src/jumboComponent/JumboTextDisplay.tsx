@@ -1,7 +1,6 @@
-import * as React from 'react';
 import './JumboTextDisplay.css';
-import { Jumbotron, Button } from 'react-bootstrap';
-import { useState, useEffect } from 'react';
+import { Jumbotron } from 'react-bootstrap';
+import { useState } from 'react';
 interface JumboTextDisplayProps {
     textToDisplay: {
         input: string[];
@@ -21,13 +20,15 @@ function JumboInput(text: string[], weight: string[]) {
     }
     return inputArray;
 }
-export const JumboTextDisplay: React.FC<JumboTextDisplayProps> = ({ textToDisplay, style }) => {
-    const [visible, setVisible] = useState<boolean>(true);
+function JumboTextDisplay({props}: { props: JumboTextDisplayProps}) {
+    const [visible] = useState<boolean>(true);
     return visible ?(
         <div>
-            <Jumbotron className={style.class}>
-                {JumboInput(textToDisplay.input, textToDisplay.weight)}
+            <Jumbotron className={props.style.class}>
+                {JumboInput(props.textToDisplay.input, props.textToDisplay.weight)}
             </Jumbotron>
         </div>
     ) : <div/>
 }
+
+export default JumboTextDisplay;

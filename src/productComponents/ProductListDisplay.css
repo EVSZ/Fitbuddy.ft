@@ -1,0 +1,32 @@
+.ProductListContainer {
+    border-radius: 25px;
+    width: 1350px;
+    height: 750px;
+    background-color: #343a405b;
+
+}
+.Main {
+    padding:30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.PageButtons {
+    position: relative;
+    display:flex;
+    flex-direction: row;
+}
+
+.btnMin {
+    margin-top: 10px;
+    margin-right:10px;
+    width:100px;
+}
+
+.btnPlus {
+    margin-top: 10px;
+    margin-left:10px;
+    width:100px;
+}
