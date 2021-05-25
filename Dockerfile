@@ -18,4 +18,4 @@ RUN npm install --save react-router-dom
 COPY . ./
 
 # start app
-CMD ["npm", "start"]
+CMD ["npm", "run", "build"]
