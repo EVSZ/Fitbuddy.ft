@@ -20,7 +20,7 @@ function ProductListDisplay() {
     const [page, setPage] = useState<string>("1");
 
     useEffect(() => {
-        axios.get("http://localhost:8080/product/getAll")
+        axios.get(`http://localhost:8080/product/getAll`)
             .then(res => {
                 const data = res.data;
                 setProductList(data);
