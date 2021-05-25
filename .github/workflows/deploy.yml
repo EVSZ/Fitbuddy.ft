@@ -65,5 +65,3 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/fitbuddyf.cicd
-      
-
