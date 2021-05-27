@@ -1,7 +1,7 @@
 .Container {
     position: relative;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     max-width: 600px;
     margin: 30px auto;
     background: #343a40;
