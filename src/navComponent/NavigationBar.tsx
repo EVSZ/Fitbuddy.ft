@@ -25,7 +25,7 @@ function DisplayNavLinks(inputArray: string[], linkStyling: string) {
         let link = "/" + inputArray[i];
         navArray.push(
             <Link to={link} key={i} className={linkStyling} href={inputArray[i]}>
-                    {inputArray[i]}
+                {inputArray[i]}
             </Link>
         )
         console.log(link);
@@ -44,12 +44,26 @@ export function NavigationBar({ navProps }: { navProps: NavigationProps }) {
                 {DisplayNavLinks(navProps.navBarItems.text, navProps.styles.links)}
             </Nav>
             <div className={navProps.styles.componentItem}>
-                <Form inline>                            
-                <Link to="/Login">
-                    <Button className={navProps.styles.button} variant={navProps.styles.btnVariant}>
-                    Log-In
-                </Button>
-                </Link>
+                <Form inline>
+                    {localStorage.getItem("logged") ?
+                        <div className="logged">
+                            <div>
+                                <h1>{localStorage.getItem("username")}</h1>
+                            </div>
+                            <div>
+                                <Button onClick={() => {
+                                    localStorage.removeItem("logged")
+                                    localStorage.removeItem("username")
+                                    window.location.reload();
+                                }}>Logout</Button>
+                            </div>
+                        </div> :
+                        <Link to="/Login">
+                            <Button onClick={() => {
+                                console.log(localStorage.getItem("username"))
+                            }} className={navProps.styles.button} variant={navProps.styles.btnVariant}>
+                                Log-In
+                </Button>                 </Link>}
                 </Form>
             </div>
         </ Navbar>

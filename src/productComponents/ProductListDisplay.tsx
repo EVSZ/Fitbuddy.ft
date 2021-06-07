@@ -10,17 +10,15 @@ type Product = {
     fat_100g: string;
     carbohydrates_100g: string;
     proteins_100g: string;
-    categories: string;
 }
 
 function ProductListDisplay() {
-
-    const [productList, setProductList] = useState<Product[] | undefined>();
+    const [productList, setProductList] = useState<Product[]>([]);
     // const [product, setProduct] = useState<Product>();
-    const [page, setPage] = useState<string>("1");
+    const [page, setPage] = useState<string>("10");
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/product/getAll`)
+        axios.get(`http://localhost:8080/product/getPage/${page}`)
             .then(res => {
                 const data = res.data;
                 setProductList(data);
@@ -28,28 +26,53 @@ function ProductListDisplay() {
             })
         return function cleanup() {
         }
-    }, []);
+    }, [page]);
 
-    function ProductListDisplay() {
-        return (
-            <div className="ProductListContainer">
-                {productList?.map((param) => {
-                    return(                    
-                    <h2>{param.product_name}</h2>
-                    )
-                })}
-            </div>
-        )
-    };
     return (
         <div className="Main">
-            {ProductListDisplay()}
+            <div>
+                <table className="Table">
+                    <thead>
+                        <tr>
+                            <th>
+                             
+                    </th>
+                            <th>
+                               
+                    </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {productList.map((param, key) => {
+                            return (
+                                <tr key={key + 1}>
+                                    <td key={key + 2}>
+                                        <img key={key + 3} alt="Food Unavailable" src={param.image_url} style={{ width: 115, height: 115, borderRadius:25 }} />
+                                    </td>
+                                    <td key={key + 4}>
+                                        <h2 key={key}>{param.product_name}</h2>
+                                    </td>
+                                    <td key={key + 5}>
+                                        <div className="Btn Select" key={key + 6}>Select</div>
+                                    </td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </table>
+            </div>
             <div className="PageButtons">
                 <Button onClick={() => {
-                    setPage((parseInt(page)-10).toString());
+                    if (parseInt(page) - 5 <= 0) {
+
+                    } else {
+                        setPage((parseInt(page) - 5).toString());
+                        console.log(page)
+                    }
                 }} className="btnMin">{"<="}</Button>
                 <Button onClick={() => {
-                    setPage((parseInt(page)+10).toString());
+                    setPage((parseInt(page) + 5).toString());
+                    console.log(page)
                 }} className="btnPlus">{"=>"}</Button>
             </div>
         </div>

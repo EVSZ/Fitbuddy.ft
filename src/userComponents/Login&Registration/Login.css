@@ -2,38 +2,84 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    max-width: 600px;
+    max-width: 500px;
+    max-height: 500px;
     margin: 30px auto;
     background: #343a40;
     opacity: 90%;
     padding: 40px;
     border-radius: 10px;
-    min-height: 600px;
     justify-content: center;
     align-items: center;
 }
-
-.Form {
+/*FORM ELEMENTS*/
+/*FORM elements*/
+.formLabel {
+    font-size:18px;
+    color:aliceblue;
     position: relative;
-    width:300px;
-    justify-content: center;
+    display:flex;
+    flex-direction:column;
+}
+.formLabelError {
+    color: red;
+    font-size: 15px;
+}
+.formLabel input[type=text],.formLabel input[type=password], .formLabel input[type=email]{
+    left:10px;
+    font-size:16px;
+    font-weight: 600;
+    height: 35px;
+    min-width: 325px;
+    border: 0.75px solid #d6d6d6;
+    border-radius: 3px;
+    text-indent: 15px;
+}
+.formLabel input[type=text].success {
+    border: 1px solid green;
+}
+.formLabel input[type=text].fail {
+    border: 1px solid red;
+}
+.customTextBox {
+    color: orange;
+    display: flex;
+    flex-direction: row;
     align-items: center;
 }
-
-label {
-    font-weight: normal;
-    font-size: larger;
-    font-family: Arial, Helvetica, sans-serif;
-    text-transform: lowercase;
+.customTextBox input[type=text] {
+    text-indent:45px;
 }
-
-.submitButton {
-    margin: 10px;
+.textBoxIcon {
+    position: absolute;
+    left:10px;
+    color:black;
+    width:50px;
+    height:50px;
 }
-
-.ButtonContainer {
-    position: relative;
+.textArea textarea {
+    height:100px;
+    min-width:325px;
+    font-size:16px;
+    font-weight: 600;
+    text-indent: 15px;
+    resize:none;
+    border: 0.75px solid #d6d6d6;
+}
+.element {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+}
+.ButtonContainer {
+    display: flex;
+    flex-direction: column;
+}
+.ButtonContainer div{
+    margin-bottom: 5px;
+}
+h6 {
+    color:yellow;
+    font-weight: 400;
 }

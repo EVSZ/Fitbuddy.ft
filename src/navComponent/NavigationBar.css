@@ -36,3 +36,13 @@
   width: 300px;
   margin-top: -10px;
 }
+
+.logged {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.logged div {
+  margin: 10px;
+}

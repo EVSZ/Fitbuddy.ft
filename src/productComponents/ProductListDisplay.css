@@ -14,19 +14,66 @@
     align-items: center;
 }
 .PageButtons {
-    position: relative;
+    position: fixed;
     display:flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    margin-bottom: 30px;
+    margin-left: -50px;
 }
 
 .btnMin {
-    margin-top: 10px;
-    margin-right:10px;
     width:100px;
+    margin: 20px;
 }
 
 .btnPlus {
-    margin-top: 10px;
-    margin-left:10px;
     width:100px;
+    margin: 20px;
+}
+
+.Table {
+    min-width: 1100px;
+    max-width: 1100px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+}
+.Table td { 
+    padding: 8px;
+    min-height:45px;
+    min-width: 100%;
+}
+.Table tr:nth-child(odd) {
+    background-color: #c094f388;
+}
+.Table tr:hover {
+    background-color:#f1c178;
+}
+.Table tr:active {
+    background: color #83faf0;;
+}
+
+.Btn {
+    width: 100px;
+    height: 50px;
+    border: 3px solid #6b6969;
+    box-shadow: 1px 1px ;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Btn:hover {
+    background-color: rgb(182, 127, 255);
+}
+
+.Btn:active {
+    background-color: rgb(255, 0, 119);
+}
+
+.Select {
+    background-color: aqua;
 }
