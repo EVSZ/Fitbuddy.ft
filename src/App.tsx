@@ -6,7 +6,7 @@ import MainMealForm from './formComponents/MainMealForm';
 // import DisplaySingleProduct from './productComponents/SingleProductDisplay';
 import ProductListDisplay from './productComponents/ProductListDisplay';
 import Login from './userComponents/Login&Registration/Login';
-import { BrowserRouter as Router, Switch, Route, BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Switch, Route, BrowserRouter } from 'react-router-dom';
 
 export default function App() {
   return (
