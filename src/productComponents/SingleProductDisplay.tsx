@@ -190,7 +190,6 @@ function DisplaySingleProduct() {
 
                     } else {
                         setNum(num - 1);
-                        console.log(num)
                     }
                 }} className="btnMin">{"<="}</Button>
                 <Button onClick={() => {

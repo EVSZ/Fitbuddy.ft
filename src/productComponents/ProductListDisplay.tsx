@@ -17,7 +17,7 @@ type Product = {
 function ProductListDisplay() {
     const [productList, setProductList] = useState<Product[]>([]);
     // const [product, setProduct] = useState<Product>();
-    const [page, setPage] = useState<string>("10");
+    const [page, setPage] = useState<string>("5");
 
     useEffect(() => {
         axios.get(`http://localhost:8080/product/getPage/${page}`)
