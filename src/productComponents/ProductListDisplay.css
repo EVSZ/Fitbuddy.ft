@@ -50,6 +50,7 @@
 }
 .Table tr:hover {
     background-color:#f1c178;
+    cursor: pointer;
 }
 .Table tr:active {
     background: color #83faf0;;

@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
 import './ProductListDisplay.css'
+import { Link } from "react-router-dom";
 
 type Product = {
+    id: number;
     image_url: string;
     product_name: string;
     ["energy-kcal_100g"]: string;
@@ -35,11 +37,11 @@ function ProductListDisplay() {
                     <thead>
                         <tr>
                             <th>
-                             
-                    </th>
+
+                            </th>
                             <th>
-                               
-                    </th>
+
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,13 +49,18 @@ function ProductListDisplay() {
                             return (
                                 <tr key={key + 1}>
                                     <td key={key + 2}>
-                                        <img key={key + 3} alt="Food Unavailable" src={param.image_url} style={{ width: 115, height: 115, borderRadius:25 }} />
+                                        <img key={key + 3} alt="Food Unavailable" src={param.image_url} style={{ width: 115, height: 115, borderRadius: 25 }} />
                                     </td>
                                     <td key={key + 4}>
                                         <h2 key={key}>{param.product_name}</h2>
                                     </td>
                                     <td key={key + 5}>
-                                        <div className="Btn Select" key={key + 6}>Select</div>
+                                        <Link to={`/product/${param.id}`}>
+                                            <div onClick={() => {
+                                                console.log(param.id)
+                                            }}className="Btn Select" key={key + 6}
+                                            >Select</div>
+                                            </Link>
                                     </td>
                                 </tr>
                             )

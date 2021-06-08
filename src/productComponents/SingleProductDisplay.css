@@ -1,25 +1,36 @@
-.DisplayContainer {
+.singleProdC {
     position: relative;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:#404852ce;
+}
+.singleProd {
+    
+}
+.Image {
     display: flex;
     justify-content: center;
-    align-items: center;
+}
+.Text {
+    position: relative;
+    display: flex;
     flex-direction: column;
-    margin: 10px 0 20px 0;
-    width: 750px;
-    height:600px;
-    max-height: 800px;
-    background:#343a40ce;
-
-}
-
-.Container {
-    position: relative;
-    display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: left;
+    margin: 10px;
 }
 
-.item {
-    position: relative;
-    margin: 10px;
+.InputField input[type="text"] {
+    width: 400px;
+    height: 35px;
+    border-radius: 1px;
+}
+.InputField input[type="number"] {
+    width: 400px;
+    height: 35px;
+    border-radius: 1px;
 }
